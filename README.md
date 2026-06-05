@@ -7,6 +7,7 @@ A time-series sales forecasting system using LSTM neural networks, served as a F
 - LSTM-based deep learning model trained on multi-store sales data
 - Sequence modeling with a 7-day sliding window
 - REST API endpoint for real-time sales prediction by store and date
+- **Web UI** — Bootstrap frontend to enter store number and date, displays predicted sales instantly
 - MinMaxScaler normalization for stable training and inference
 
 ## Tech Stack
@@ -16,6 +17,7 @@ A time-series sales forecasting system using LSTM neural networks, served as a F
 ![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)
 
 ## Setup
 
@@ -23,13 +25,13 @@ A time-series sales forecasting system using LSTM neural networks, served as a F
 pip install flask keras tensorflow pandas numpy scikit-learn
 ```
 
-## Running the API
+## Running the App
 
 ```bash
 python stores.py
 ```
 
-The server starts on `http://localhost:5004`.
+The server starts on `http://localhost:5004`. Open `index.html` in your browser (or serve it statically) to use the web interface — enter a store number and date, click **Check**, and the predicted sales appear instantly.
 
 ## API Usage
 
@@ -61,7 +63,8 @@ curl -X POST http://localhost:5004/predict \
 
 ```
 ChronoSales/
-├── stores.py          # Flask API server
+├── stores.py          # Flask API server + prediction logic
+├── index.html         # Bootstrap web UI (store number + date input)
 ├── model.json         # Saved LSTM architecture
 ├── model_weights.h5   # Trained model weights
 ├── con_train.zip      # Preprocessed training dataset
